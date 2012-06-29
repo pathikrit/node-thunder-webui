@@ -1,7 +1,7 @@
 {
   "name": "node-thunder-driver",
   "version": "0.0.1",
-  "author": "Pathikrit Bhowmick <pathikrit.bhowmick@gmail.com>",
+  "author": "Pathikrit Bhowmick <pathikritbhowmick@msn.com>",
   "description": "web ui for dream cheeky usb thunder missile launcher",
   "repository": {
     "type": "git",
@@ -9,7 +9,7 @@
   },
   "dependencies": {
     "express": "2.5.x",
-    "node-thunder-driver": "0.0.x"
+    "node-thunder-driver": "git://github.com/pathikrit/node-thunder-driver.git"
   },
   "license": "MIT",
   "engine": {
