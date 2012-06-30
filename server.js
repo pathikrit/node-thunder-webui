@@ -5,9 +5,9 @@ var config = {
   // The numbers after u,d,l,r represents ms to do that action.
   // The number after fire represents number of missiles to fire
   target: {
-    test: 'l1000 r1100 u1200 d1300',
-    vassili: 'u1 l1',
-    rick: 'u1 l1'
+    test   : 'l1000,r1100,u1200,d1300',
+    vassili: 'u1,l1',
+    rick   : 'u1,l1'
   },
 
   // Define web server configs here
@@ -17,16 +17,14 @@ var config = {
 };
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-process.on('uncaughtException', function (err) {
-  console.error(err.stack);
-});
 
 console.log('Acquiring rocket launcher ...');
 var launcher = require('node-thunder-driver');
 if (config.target.test) {
   console.log('Executing launcher test sequence ...');
-  launcher.execute(config.target.test);
-  console.log('Launcher online!');
+  launcher.execute(config.target.test, function () {
+    console.log('Launcher online!');
+  });
 }
 
 var port = config.server.port;
@@ -42,8 +40,10 @@ server.get('/targets', function (req, res) {
 });
 
 server.post('/execute', function (req, res) {
-  launcher.execute(req.body.cmd).reset();
-  res.redirect('back');
+  launcher.execute(req.body.cmd, function () {
+    launcher.reset();
+    res.redirect('back');
+  });
 });
 
 server.listen(port);
