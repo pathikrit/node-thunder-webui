@@ -3,6 +3,12 @@
 <html>
 
 <head>
+  <style>
+    .dpad {
+      font-family: monospace;
+    }
+  </style>
+
   <script src="http://code.jquery.com/jquery-1.7.2.min.js"></script>
   <script src="http://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.3.3/underscore-min.js"></script>
   <script>
@@ -11,6 +17,7 @@
         _.each(_.keys(targets), function (name) {
           $('<button>' + name + '</button>').click(function () {
             $('#cmd').val(targets[name]);
+            $('form').submit();
           }).appendTo('.targets');
         });
       });
@@ -23,10 +30,18 @@
 </div>
 <br/>
 
-<form action='/execute' method="post">
+<form action="/execute" method="post">
   <input type="text" id="cmd" name="cmd"/>
   <input type="submit" value="Execute!"/>
 </form>
+
+<pre class="dpad">
+  ▲
+◀ ◎ ▶
+  ▼
+</pre>
+
+
 </body>
 
 </html>
