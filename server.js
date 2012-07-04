@@ -1,9 +1,6 @@
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 var config = {
 
-  // Define launch sequences here (u)p, (d)own, (l)eft, (r)ight, (f)ire,
-  // The numbers after u,d,l,r represents ms to do that action.
-  // The number after fire represents number of missiles to fire
   target: {
     test   : 'l1000 r1100 u1200 d1300',
     vassili: 'u1 l1',
@@ -43,12 +40,19 @@ server.get('/targets', function (req, res) {
 });
 
 server.post('/execute', function (req, res) {
-  res.redirect('back');
+  console.log('Executing: ' + req.body.cmd);
+  res.redirect('/');
 //  launcher.execute(req.body.cmd, function() {
 //    launcher.reset(function() {
-//      res.redirect('back');
+//      res.redirect('/');
 //    });
 //  });
+});
+
+server.post('/control', function (req, res) {
+  console.log('Control: ' + req.body.cmd);
+  //launcher[req.body.cmd].call(-1);
+  res.redirect('/');
 });
 
 server.listen(port);
