@@ -40,18 +40,15 @@ server.get('/targets', function (req, res) {
 });
 
 server.post('/execute', function (req, res) {
-  console.log('Executing: ' + req.body.cmd);
-  res.redirect('/');
-//  launcher.execute(req.body.cmd, function() {
-//    launcher.reset(function() {
-//      res.redirect('/');
-//    });
-//  });
+  console.log('Execute: ' + req.body.cmd);
+  launcher.execute(req.body.cmd, function () {
+    res.redirect('/');
+  });
 });
 
 server.post('/control', function (req, res) {
   console.log('Control: ' + req.body.cmd);
-  //launcher[req.body.cmd].call(-1);
+  launcher[req.body.cmd].call(-1);
   res.redirect('/');
 });
 
