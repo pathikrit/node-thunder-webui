@@ -2,9 +2,9 @@
 var config = {
 
   target: {
-    test   : 'l1000 r1100 u1200 d1300',
-    vassili: 'u1 l1',
-    rick   : 'u1 l1'
+    test   : 'l1000,r1000,u1000,d1000',
+    vassili: 'u500,l500',
+    rick   : 'r500,d500'
   },
 
   // Define web server configs here
@@ -48,7 +48,7 @@ server.post('/execute', function (req, res) {
 
 server.post('/control', function (req, res) {
   console.log('Control: ' + req.body.cmd);
-  launcher[req.body.cmd].call(-1);
+  launcher[req.body.cmd].call(this, -1);
   res.redirect('/');
 });
 
