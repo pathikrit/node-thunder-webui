@@ -24,17 +24,24 @@
       });
 
       $('td > button').each(function (i, el) {
+        var trigger = false;
+
         var action = function () {
-          send(el.id, 'control');
+          if (!trigger) {
+            send(el.id, 'control');
+            trigger = true;
+          }
         };
 
         var stop = function () {
           send('stop', 'control');
+          trigger = false;
         };
 
         $(el).mousedown(action).mouseup(stop);
-        Mousetrap.bind(el.id === 'fire' ? 'space' : el.id, action, 'keydown');
-        Mousetrap.bind(el.id === 'fire' ? 'space' : el.id, stop, 'keyup');
+        var key = el.id === 'fire' ? 'space' : el.id;
+        Mousetrap.bind(key, action, 'keydown');
+        Mousetrap.bind(key, stop, 'keyup');
       });
 
       $('form').submit(function () {
