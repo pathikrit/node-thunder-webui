@@ -4,12 +4,12 @@ var config = {
   target: {
     reset   : 'RESET',
     harvey  : 'r400,u80,f2',
-    josh    : 'r1000,u180,f2',
-    joel    : 'r1900,u190,f2',
+    josh    : 'r1000,u200,f4',
+    joel    : 'r1900,u250,f2',
     vassili : 'r2000,f2',
-    winton  : 'r2400,u230,f2',
-    mark    : 'r3000,u250,f2',
-    lagrotta: 'r3900,u60,f2',
+    winton  : 'r2400,u270,f2',
+    mark    : 'r3000,u280,f2',
+    lagrotta: 'r3850,u65,f2',
     rick    : 'r4600,u20,f2'
   },
 
