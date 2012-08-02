@@ -3,14 +3,14 @@ var config = {
 
   target: {
     reset   : 'RESET',
-    harvey  : 'r400,u80,f2',
-    josh    : 'r1000,u200,f4',
-    joel    : 'r1900,u250,f2',
-    vassili : 'r2000,f2',
-    winton  : 'r2400,u270,f2',
-    mark    : 'r3000,u280,f2',
-    lagrotta: 'r3850,u65,f2',
-    rick    : 'r4600,u20,f2'
+    harvey  : 'r400,u150,f4',
+    josh    : 'r1000,u300,f4',
+    joel    : 'r1900,u350,f4',
+    vassili : 'r2000,f4',
+    winton  : 'r2400,u330,f4',
+    mark    : 'r3000,u350,f4',
+    lagrotta: 'r3850,u90,f4',
+    rick    : 'r4600,u60,f4'
   },
 
   // Define web server configs here
